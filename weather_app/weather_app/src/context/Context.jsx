@@ -2,8 +2,9 @@ import { createContext, useContext } from "react";
 
 
 const Weatherapi=createContext({
-    weatherData:'sunny',
-    forecastdata:'sunny',
+    info:'null',
+    forecastdata:'null',
+    api_key:'',
 })
 
 export const WeatherProvider = ({ children, value }) => {
