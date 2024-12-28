@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Search } from 'lucide-react'
 import useWeather from '../context/Context'
+import Searchcard from './Searchcard';
 
 function Searchbar() {
 
@@ -65,6 +66,8 @@ const handlechange=(e)=>{
  {/* </div> */}
     </div>
     </form>
+    <br />
+    {/* <Searchcard/> */}
     </>
   )
 }
