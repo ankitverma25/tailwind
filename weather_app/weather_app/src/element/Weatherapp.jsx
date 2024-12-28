@@ -1,6 +1,7 @@
 import React from 'react'
 import Currentlocation from './Currentlocation'
 import Forecast from '../components/Forecast'
+import Searchbar from '../components/Searchbar'
 
 function Weatherapp() {
     return (
@@ -18,6 +19,7 @@ function Weatherapp() {
 
                     <h1 className="text-2xl lg:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-br from-black to-blue-800 ">WEATHER FORECAST</h1>
                 </div>
+                <Searchbar/>                    
                 <div className=" flex flex-wrap ">
                 <Currentlocation/>
                 <Forecast/>

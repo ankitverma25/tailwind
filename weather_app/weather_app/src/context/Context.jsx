@@ -5,6 +5,8 @@ const Weatherapi=createContext({
     info:'null',
     forecastdata:'null',
     api_key:'',
+    searchdata:'',
+    
 })
 
 export const WeatherProvider = ({ children, value }) => {

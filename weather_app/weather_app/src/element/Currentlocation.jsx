@@ -19,20 +19,17 @@ function Currentlocation() {
                 const data = await response.json();
 
                 setinfo(data)
-                console.log(data)
 
                 console.log("get weather location ", data.name);
                 setcity(data.name)
                 
             }
             catch (error) {
-                console.log(error)
                 seterror(errormsg.message)
             }
         }
         
     const error = (e) => {
-        console.log(e);
         seterrormsg('please enable location service')
 
         
@@ -60,12 +57,19 @@ function Currentlocation() {
         <>
         {/* <div className="animate-zoom-in p-5 bg-slate-300 m-3" id="location"> */}
         {errormsg ? (
-          <p className="text-red-500 text-center">{errormsg}</p>
+          <p className="p-2 text-red-500 text-center font-bold">{errormsg}...</p>
         ) : city ? (
           <Currentcard/>
          
         ) : (
-            <p className="text-gray-400 text-center">Fetching location...</p>
+            <p className="text-gray-400 text-center">Fetching location<lord-icon
+            src="https://cdn.lordicon.com/ayvhsttz.json"
+            trigger="loop"
+            stroke="bold"
+            state="loop-cycle
+            style={{}}
+            
+            "></lord-icon></p>
         )}
       {/* </div> */}
   
