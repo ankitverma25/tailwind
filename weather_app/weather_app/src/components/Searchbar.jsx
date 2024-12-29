@@ -5,9 +5,7 @@ import Searchcard from './Searchcard';
 
 function Searchbar() {
 
-    const {searchcity, setsearchCity,searchdata, setsearchdata ,api_key} = useWeather();
-    const[loading,setloading]=useState(false);
-    const[err,seterr]= useState();
+    const {sethide,loading,setloading,err,seterr,searchcity, setsearchCity,searchdata, setsearchdata ,api_key} = useWeather();
 
 
 
@@ -25,6 +23,7 @@ const fetchweather=async(city)=>{
     try {
     setloading(true)
     seterr('')
+    sethide(false)
 
     const [weather,forecast]=await Promise.all([
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${api_key}`),
@@ -67,6 +66,7 @@ const handlechange=(e)=>{
     </div>
     </form>
     <br />
+  
     {/* <Searchcard/> */}
     </>
   )

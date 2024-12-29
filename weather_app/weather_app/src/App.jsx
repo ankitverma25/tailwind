@@ -12,6 +12,11 @@ function App() {
   const [searchcity, setsearchCity] = useState("");
   const [searchdata, setsearchdata]= useState('')
   const [searchforecast, setsearchforecast]= useState('')
+  const[err,seterr]= useState();
+  const[loading,setloading]=useState(false);
+  const[hide,sethide]=useState(false)
+
+  
 
 
 
@@ -22,7 +27,7 @@ function App() {
 
 
   return (
-    <WeatherProvider value={{searchforecast,setsearchforecast,info,forecastdata,api_key,setforecastdata,setinfo,searchcity,setsearchCity,searchdata,setsearchdata}}>
+    <WeatherProvider value={{hide,sethide,err,seterr,loading,setloading,searchforecast,setsearchforecast,info,forecastdata,api_key,setforecastdata,setinfo,searchcity,setsearchCity,searchdata,setsearchdata}}>
       <Weatherapp/>
     </WeatherProvider>
   )
