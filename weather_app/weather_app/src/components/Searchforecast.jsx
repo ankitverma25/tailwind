@@ -1,21 +1,22 @@
-import React from 'react'
-import useWeather from '../context/Context'
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react'
+import useWeather from '../context/Context';
 
-function Forecast() {
-    const {api_key,forecastdata,setforecastdata,info}=useWeather()
+function Searchforecast() {
 
-    // console.log(api_key,forecastdata,setforecastdata)
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${info.name}&units=metric&appid=${api_key}`;
+    const {api_key,searchdata}=useWeather();
+
+    const[forecastdata,setforecastdata,err]=useState([]);
+  // console.log(api_key,forecastdata,setforecastdata)
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${searchdata.name}&units=metric&appid=${api_key}`;
   useEffect(()=>{
     fetch(url)
     .then((res)=>res.json()).then((data)=>setforecastdata(data.list.filter((reading,index)=>index%8===0))).catch((err)=>{console.log(err);setforecastdata([])})
 
 
-  },[info.name])
+  },[searchdata.name])
 
   console.log(forecastdata)
-  console.log(info.name)
+  console.log(searchdata.name)
 
 
 
@@ -24,10 +25,11 @@ function Forecast() {
 
 
   return (
-  
+
+    err?<div className='m-4'>{err}</div>:
     forecastdata.length===0?<div className='m-4'>No forecast data available</div>:
     <div className="animate-zoom-in bg-white rounded-xl shadow-lg p-6 w-full max-w-md mt-4 m-2">
-      <span className="text-xs font-semibold">current loaction</span>
+      <span className="text-xs font-semibold">search loaction</span>
       <h3 className="text-xl font-bold text-gray-800 mb-4">5-Day Forecast</h3>
       <div className="grid grid-cols-5 gap-4">
         {forecastdata.map((day) => (
@@ -49,4 +51,5 @@ function Forecast() {
 ); 
 }
 
-export default Forecast
+
+export default Searchforecast

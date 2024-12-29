@@ -4,9 +4,10 @@ import Forecast from '../components/Forecast'
 import Searchbar from '../components/Searchbar'
 import Searchcard from '../components/Searchcard'
 import useWeather from '../context/Context'
+import Searchforecast from '../components/Searchforecast'
 
 function Weatherapp() {
-    const{loading,err,searchdata}=useWeather();
+    const { loading, err, searchdata } = useWeather();
     return (
         <>
             <div className="bg-gradient-to-bl from-blue-100 to-blue-300 min-h-screen" id='bg'>
@@ -24,22 +25,16 @@ function Weatherapp() {
                 </div>
                 <Searchbar/>     
                 <div className=" flex flex-wrap md:flex-col">
-                {loading&&(
-        <div className="">loading....</div>
-    )}
-    {err&&(
-        <div className="">{err}</div>
-        )}
-        {searchdata&&(
-           <Searchcard/>
-        )}
+
+                {loading && <p className="text-blue-500 text-center">Loading...</p>}
+                {err && <p className="text-red-500 text-center">{err}</p>}
+                {searchdata && <Searchcard />}
                 <Currentlocation/>
                 <Forecast/>
+            
 
 
                 </div>
-
-            
             </div>
 
 
